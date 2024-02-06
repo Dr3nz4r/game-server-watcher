@@ -71,8 +71,6 @@ export interface QueryOptions {
     teamspeakQueryPort?: number;
     // Terraria
     token?: string;
-    // Generic    
-    serverPassword?: string;
 }
 
 export class GameServer {
@@ -132,8 +130,7 @@ export class GameServer {
                 login: this.config.login,
                 password: this.config.password,
                 teamspeakQueryPort: this.config.teamspeakQueryPort,
-                token: this.config.token,
-                serverPassword: this.config.serverPassword
+                token: this.config.token
             } as QueryOptions) as qRes;
 
             const raw = res.raw as { game?: string; folder?: string; presence_count?: number; };

@@ -178,16 +178,7 @@ class ServerInfoMessage {
             if (gs.info.game) fields.push({ name: 'Game', value: String(gs.info.game), inline: true});
             if (gs.info.map) fields.push({ name: 'Map', value: String(gs.info.map), inline: true});
             fields.push({ name: 'Players', value: String(gs.info.playersNum + '/' + gs.info.playersMax), inline: true});
-
-            let address = gs.info.connect;
-            if(gs.config.appId != null) {
-                address = `steam://connect/${gs.info.connect}`;
-                if(gs.config.serverPassword != null) {
-                    address += `/${gs.config.serverPassword}`;
-                }
-            }
-
-            fields.push({ name: 'Address', value: String(address)});
+            fields.push({ name: 'Address', value: String(gs.info.connect)});
 
             if (showPlayersList && gs.info?.players.length > 0) {
                 const pNames: string[] = [];
