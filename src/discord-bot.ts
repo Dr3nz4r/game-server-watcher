@@ -185,9 +185,11 @@ class ServerInfoMessage {
                 if(gs.config.serverPassword != null) {
                     address += `/${gs.config.serverPassword}`;
                 }
+                address = `[${address}](${address})`
+                fields.push({ name: 'Connect', value: address});
+            } else {
+                fields.push({ name: 'Address', value: String(gs.info.connect)});
             }
-
-            fields.push({ name: 'Address', value: String(address)});
 
             if (showPlayersList && gs.info?.players.length > 0) {
                 const pNames: string[] = [];
