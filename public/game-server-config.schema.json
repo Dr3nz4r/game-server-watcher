@@ -276,7 +276,7 @@
             }
         },
         "serverPassword": {
-            "title": "server passoword",
+            "title": "server password",
             "type": "string",
             "options": {
                 "grid_columns": 3
