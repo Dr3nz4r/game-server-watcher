@@ -179,9 +179,7 @@ class ServerInfoMessage {
             if (gs.info.map) fields.push({ name: 'Map', value: String(gs.info.map), inline: true});
             fields.push({ name: 'Players', value: String(gs.info.playersNum + '/' + gs.info.playersMax), inline: true});
 
-            if (DBG) console.log('Hello');
             let address = gs.info.connect;
-            if (DBG) console.log('discord.msgUpdate', gs.config.appId);
             if(gs.config.appId != null) {
                 address = `steam://connect/${gs.info.connect}`;
                 if(gs.config.serverPassword != null) {
@@ -189,6 +187,7 @@ class ServerInfoMessage {
                 }
                 address = `[${address}](${address})`
                 fields.push({ name: 'Connect', value: address});
+                embed.setDescription(`[Connect to the server](${address})`);
             } else {
                 fields.push({ name: 'Address', value: String(gs.info.connect)});
             }
