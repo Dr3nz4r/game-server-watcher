@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits, TextChannel, Message, EmbedBuilder, APIEmbedField, HexColorString } from 'discord.js';
+import { Client, GatewayIntentBits, TextChannel, Message, EmbedBuilder, APIEmbedField, HexColorString , hyperlink } from 'discord.js';
 import { Low, JSONFile } from '@commonify/lowdb';
 import { GameServer } from './game-server';
 import hhmmss from './lib/hhmmss';
@@ -185,10 +185,9 @@ class ServerInfoMessage {
                 if(gs.config.serverPassword != null) {
                     address += `/${gs.config.serverPassword}`;
                 }
-                address = `[${address}](${address})`
+                address = hyperlink(address);
                 fields.push({ name: 'Connect', value: address});
-                embed.setDescription(`[Connect to the server](${address})`);
-                embed.setURL(address);
+                embed.setDescription(`(address}`);
             } else {
                 fields.push({ name: 'Address', value: String(gs.info.connect)});
             }
