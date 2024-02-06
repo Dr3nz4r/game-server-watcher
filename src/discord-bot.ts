@@ -180,7 +180,7 @@ class ServerInfoMessage {
             fields.push({ name: 'Players', value: String(gs.info.playersNum + '/' + gs.info.playersMax), inline: true});
 
             let address = gs.info.connect;
-            if (DBG) console.log('discord.msgUpdate', gs, conf);
+            if (DBG) console.log('discord.msgUpdate', gs.config.appId);
             if(gs.config.appId != null) {
                 address = `steam://connect/${gs.info.connect}`;
                 if(gs.config.serverPassword != null) {
