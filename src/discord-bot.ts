@@ -190,7 +190,7 @@ class ServerInfoMessage {
                     connectCommand += `;password ${gs.config.serverPassword}`;
                 }
     
-                embed.setDescription(`connect through the developer console and typing in '${connectCommand}'`);
+                embed.setDescription(`connect through the developer console and typing in \`${connectCommand}\``);
             }
 
             // zero width space to line break and avoid inlining the connection details with charts and lists
