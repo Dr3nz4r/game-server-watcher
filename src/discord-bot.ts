@@ -179,6 +179,8 @@ class ServerInfoMessage {
             if (gs.info.map) fields.push({ name: 'Map', value: String(gs.info.map), inline: true});
             fields.push({ name: 'Players', value: String(gs.info.playersNum + '/' + gs.info.playersMax), inline: true});
 
+            // zero width space to line break and avoid inlining the connection details with player info
+            fields.push({ name: '\u200B', value: String('\u200B')});
             fields.push({ name: 'Address', value: String(gs.info.connect), inline: true});
             if(gs.config.serverPassword != null) {
                 fields.push({ name: 'Server password', value: String(gs.config.serverPassword), inline: true});
