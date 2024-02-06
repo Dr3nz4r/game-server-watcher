@@ -185,7 +185,7 @@ class ServerInfoMessage {
                 if(gs.config.serverPassword != null) {
                     address += `/${gs.config.serverPassword}`;
                 }
-                address = hyperlink(address);
+                address = hyperlink(address, address);
                 fields.push({ name: 'Connect', value: address});
                 embed.setDescription(`(address}`);
             } else {
