@@ -61,6 +61,8 @@ export interface GameServerConfig {
     teamspeakQueryPort?: number;
     // Terraria
     token?: string;
+    // Gerneric
+    serverPassword?: string;
 }
 
 const adapter = new JSONFile<GameServerConfig[]>(DATA_PATH + 'default.config.json');
