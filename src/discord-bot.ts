@@ -185,7 +185,7 @@ class ServerInfoMessage {
             }
 
             if(gs.config.appId == 730) {
-                let connectCommand = `connect ${address}`;
+                let connectCommand = `connect ${gs.info.connect}`;
                 if(gs.config.serverPassword != null) {
                     connectCommand += `;password ${gs.config.serverPassword}`;
                 }
