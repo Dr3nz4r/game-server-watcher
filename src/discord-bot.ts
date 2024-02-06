@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits, TextChannel, Message, EmbedBuilder, APIEmbedField, HexColorString } from 'discord.js';
+import { Client, GatewayIntentBits, TextChannel, Message, EmbedBuilder, APIEmbedField, HexColorString , hyperlink } from 'discord.js';
 import { Low, JSONFile } from '@commonify/lowdb';
 import { GameServer } from './game-server';
 import hhmmss from './lib/hhmmss';
@@ -178,7 +178,23 @@ class ServerInfoMessage {
             if (gs.info.game) fields.push({ name: 'Game', value: String(gs.info.game), inline: true});
             if (gs.info.map) fields.push({ name: 'Map', value: String(gs.info.map), inline: true});
             fields.push({ name: 'Players', value: String(gs.info.playersNum + '/' + gs.info.playersMax), inline: true});
-            fields.push({ name: 'Address', value: String(gs.info.connect)});
+
+            fields.push({ name: 'Address', value: String(gs.info.connect), inline: true});
+            if(gs.config.serverPassword != null) {
+                fields.push({ name: 'Server password', value: String(gs.config.serverPassword), inline: true});
+            }
+
+            if(gs.config.appId == 730) {
+                let connectCommand = `connect ${gs.info.connect}`;
+                if(gs.config.serverPassword != null) {
+                    connectCommand += `;password ${gs.config.serverPassword}`;
+                }
+    
+                embed.setDescription(`connect through the developer console and typing in \`${connectCommand}\``);
+            }
+
+            // zero width space to line break and avoid inlining the connection details with charts and lists
+            fields.push({ name: '\u200B', value: String('\u200B')});
 
             if (showPlayersList && gs.info?.players.length > 0) {
                 const pNames: string[] = [];
