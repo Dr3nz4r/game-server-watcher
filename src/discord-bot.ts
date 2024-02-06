@@ -179,6 +179,7 @@ class ServerInfoMessage {
             if (gs.info.map) fields.push({ name: 'Map', value: String(gs.info.map), inline: true});
             fields.push({ name: 'Players', value: String(gs.info.playersNum + '/' + gs.info.playersMax), inline: true});
 
+            if (DBG) console.log('Hello');
             let address = gs.info.connect;
             if (DBG) console.log('discord.msgUpdate', gs.config.appId);
             if(gs.config.appId != null) {
