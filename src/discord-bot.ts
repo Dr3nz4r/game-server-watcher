@@ -188,6 +188,7 @@ class ServerInfoMessage {
                 address = `[${address}](${address})`
                 fields.push({ name: 'Connect', value: address});
                 embed.setDescription(`[Connect to the server](${address})`);
+                embed.setURL(address);
             } else {
                 fields.push({ name: 'Address', value: String(gs.info.connect)});
             }
